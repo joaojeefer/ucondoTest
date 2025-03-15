@@ -5,6 +5,7 @@ import { accounstListMock } from "../../../mock"
 interface AccountContextData {
    accounts: Account[]
    addAccount: (newAccount: Account) => void
+   deleteAccount: (code: string) => void
 }
 
 interface AccountProviderProps {
@@ -20,11 +21,16 @@ export function AccountProvider({ children }: AccountProviderProps) {
       // adicionar novo Account conforme regra
    }
 
+   function deleteAccount(code: string) {
+      setAccounts(oldList => oldList.filter(account => account.code !== code))
+   }
+
    return (
       <AccountContext.Provider
          value={{
             accounts,
             addAccount,
+            deleteAccount,
          }}
       >
          {children}

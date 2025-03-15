@@ -5,7 +5,7 @@ import { AccountContext } from "../../../context"
 export function AccountsList() {
     const [search, setSearch] = useState('')
 
-    const { accounts } = useContext(AccountContext)
+    const { accounts, deleteAccount } = useContext(AccountContext)
 
     return (
         <View>
@@ -23,7 +23,7 @@ export function AccountsList() {
                     renderItem={({ item }) => (
                         <View key={item.code} style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
                             <Text>{`${item.code} - ${item.name}`}</Text>
-                            <Button title="Del" onPress={() => { }} />
+                            <Button title="Del" onPress={() => deleteAccount(item.code)} />
                         </View>
                     )}
                 />
