@@ -22,9 +22,10 @@ export const Metrics = {
       4: 0.9,
    },
    radius: {
-      small: 4,
-      medium: 8,
-      large: 12,
+      xx_small: 4,
+      x_small: 8,
+      small: 12,
+      medium: 24,
       x_large: 100,
    },
    spacing: {

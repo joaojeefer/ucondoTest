@@ -6,6 +6,7 @@ export const Palette = {
    secondary: {
       default: '#FFFFFF',
       light: '#C4C4D1',
+      lightAlt: '#A0A0B2',
       dark: '#3D3D4C',
    },
    error: {
