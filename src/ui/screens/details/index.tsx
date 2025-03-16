@@ -1,7 +1,9 @@
 import React, { useContext, useState } from "react"
-import { TextInput, View } from "react-native"
+import { Text, TextInput, View } from "react-native"
 import { AccountContext } from "../../../context"
 import { Picker } from "@react-native-picker/picker"
+import { Input, Selector } from "../../components"
+import { styles } from "./styles"
 
 export function DetailsAccount() {
    const [parentCode, setParentCode] = useState('')
@@ -31,22 +33,51 @@ export function DetailsAccount() {
    }
 
    return (
-      <View style={{ flex: 1 }}>
-         <Picker selectedValue={parentCode} onValueChange={handleParentCode}>
-            {accounts.map(account =>
-               <Picker.Item key={account.code} value={account.code} label={`${account.code} - ${account.name}`} />
-            )}
-         </Picker>
-         <TextInput value={code} onChangeText={setCode} editable={false} />
-         <TextInput value={name} onChangeText={setName} />
-         <Picker selectedValue={accountType} onValueChange={setType}>
-            <Picker.Item label="Receita" value="Receita" />
-            <Picker.Item label="Despesa" value="Despesa" />
-         </Picker>
-         <Picker selectedValue={acceptEntries} onValueChange={setAcceptEntries}>
-            <Picker.Item label="Sim" value={true} />
-            <Picker.Item label="Não" value={false} />
-         </Picker>
+      <View style={styles.container}>
+         <View style={styles.content}>
+            <Selector
+               label="Conta pai"
+               selectedValue={parentCode}
+               style={styles.bottomSpacing}
+               onValueChange={handleParentCode}
+            >
+               {accounts.map(account =>
+                  <Picker.Item
+                     key={account.code}
+                     value={account.code}
+                     label={`${account.code} - ${account.name}`}
+                  />
+               )}
+            </Selector>
+
+            <View style={styles.bottomSpacing}>
+               <Input label="Código" value={code} onChangeText={setCode} editable={false} />
+            </View>
+
+            <View style={styles.bottomSpacing}>
+               <Input label="Nome" value={name} onChangeText={setName} />
+            </View>
+
+            <Selector
+               label="Tipo"
+               selectedValue={accountType}
+               style={styles.bottomSpacing}
+               onValueChange={setType}
+            >
+               <Picker.Item label="Receita" value="Receita" />
+               <Picker.Item label="Despesa" value="Despesa" />
+            </Selector>
+
+            <Selector
+               label="Aceita lançamentos"
+               selectedValue={acceptEntries}
+               style={styles.bottomSpacing}
+               onValueChange={setAcceptEntries}
+            >
+               <Picker.Item label="Sim" value={true} />
+               <Picker.Item label="Não" value={false} />
+            </Selector>
+         </View>
       </View>
    )
 }
