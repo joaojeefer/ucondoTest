@@ -1,18 +1,25 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { Text, TextInput, View } from "react-native"
 import { AccountContext } from "../../../context"
 import { Picker } from "@react-native-picker/picker"
 import { Input, Selector } from "../../components"
 import { styles } from "./styles"
+import { DetailsProps } from "./types"
 
-export function DetailsAccount() {
+export function DetailsAccount(props: DetailsProps) {
+   const { route } = props
+
    const [parentCode, setParentCode] = useState('')
    const [code, setCode] = useState('')
    const [name, setName] = useState('')
    const [accountType, setType] = useState('Receita')
-   const [acceptEntries, setAcceptEntries] = useState(false)
+   const [acceptEntries, setAcceptEntries] = useState(true)
 
    const { accounts } = useContext(AccountContext)
+
+   useEffect(() => {
+      handleParentCode(route.params?.code ?? accounts[0].code)
+   }, [])
 
    function handleCode(parent: string) {
       const childrenAccounts = accounts.filter(account => account.code.startsWith(`${parent}.`))
