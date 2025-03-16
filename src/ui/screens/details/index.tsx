@@ -19,7 +19,18 @@ export function DetailsAccount(props: DetailsProps) {
 
    useEffect(() => {
       handleParentCode(route.params?.code ?? accounts[0].code)
+      handleOtherValues(route.params?.code)
    }, [])
+
+   function handleOtherValues(parent?: string) {
+      const selectedAccount = accounts.find(account => account.code === parent)
+
+      if (selectedAccount) {
+         setName(selectedAccount.name)
+         setType(selectedAccount.type)
+         setAcceptEntries(selectedAccount.acceptEntries)
+      }
+   }
 
    function handleCode(parent: string) {
       const childrenAccounts = accounts.filter(account => account.code.startsWith(`${parent}.`))
