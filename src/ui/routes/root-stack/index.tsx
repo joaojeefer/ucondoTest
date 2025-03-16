@@ -1,15 +1,15 @@
 import React from "react";
+import { StatusBar } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
-import { AccountsList, DetailsAccount } from "./screens";
-import { RootStackParamList } from "./types";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { StatusBar } from "react-native";
-import { Metrics, Palette } from "../res";
+import { AccountsList, DetailsAccount } from "../../screens";
+import { Metrics, Palette } from "../../../res";
+import { RootStackParamList } from "./types";
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
-export function Main() {
+export function RootStack() {
    return (
       <SafeAreaView style={{ flex: 1 }}>
          <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />

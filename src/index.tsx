@@ -1,11 +1,11 @@
 import React from 'react';
 import { AccountProvider } from './context';
-import { Main } from './ui';
+import { RootStack } from './ui/routes';
 
 export function App(): React.ReactElement {
    return (
       <AccountProvider>
-         <Main />
+         <RootStack />
       </AccountProvider>
    )
 }
