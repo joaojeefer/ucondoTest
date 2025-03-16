@@ -1,3 +1,4 @@
 export { AccountCard } from './account-card'
 export { DeleteAccountModal } from './delete-account-modal'
+export { Input } from './input'
 export { SearchTextInput } from './search-text-input'
