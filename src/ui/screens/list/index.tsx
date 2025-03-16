@@ -1,16 +1,17 @@
 import React, { useContext, useEffect, useState } from "react"
 import { FlatList, Text, View } from "react-native"
-import { useNavigation } from "@react-navigation/native"
 import Icon from '@react-native-vector-icons/fontawesome6';
 import { AccountContext } from "../../../context"
 import { AccountCard, SearchTextInput } from "../../components";
 import { Metrics, Palette } from "../../../res";
 import { styles } from "./styles";
+import { AccountsListProps } from "./types";
 
-export function AccountsList() {
+export function AccountsList(props: AccountsListProps) {
+    const { navigation } = props
+
     const [search, setSearch] = useState('')
 
-    const navigation = useNavigation()
     const { accounts, deleteAccount } = useContext(AccountContext)
 
     useEffect(() => {
@@ -52,6 +53,7 @@ export function AccountsList() {
                             key={item.code}
                             account={`${item.code} - ${item.name}`}
                             label={`${item.code} - ${item.name}`}
+                            onDetailsPress={() => navigation.navigate('Details', { code: item.code })}
                             onDeletePress={() => deleteAccount(item.code)}
                         />
                     }
