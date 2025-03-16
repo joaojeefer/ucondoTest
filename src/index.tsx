@@ -1,11 +1,11 @@
 import React from 'react';
-import { View } from 'react-native';
 import { AccountProvider } from './context';
+import { Main } from './ui';
 
 export function App(): React.ReactElement {
    return (
       <AccountProvider>
-         <View />
+         <Main />
       </AccountProvider>
    )
 }

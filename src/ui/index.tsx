@@ -1,6 +1,18 @@
 import React from "react";
-import { AccountsList } from "./screens";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
+import { AccountsList, DetailsAccount } from "./screens";
+import { RootStackParamList } from "./types";
 
-export function App() {
-   return <AccountsList />
+const Stack = createNativeStackNavigator<RootStackParamList>()
+
+export function Main() {
+   return (
+      <NavigationContainer>
+         <Stack.Navigator>
+            <Stack.Screen name="Home" component={AccountsList} options={{ title: 'Plano de Contas' }} />
+            <Stack.Screen name="Details" component={DetailsAccount} />
+         </Stack.Navigator>
+      </NavigationContainer>
+   )
 }

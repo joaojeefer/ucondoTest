@@ -1,14 +1,24 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { Button, FlatList, Text, TextInput, View } from "react-native"
+import { useNavigation } from "@react-navigation/native"
 import { AccountContext } from "../../../context"
 
 export function AccountsList() {
     const [search, setSearch] = useState('')
 
+    const navigation = useNavigation()
     const { accounts, deleteAccount } = useContext(AccountContext)
 
+    useEffect(() => {
+        navigation.setOptions({
+            headerRight: () => (
+                <Button title="Detalhes" onPress={() => navigation.navigate('Details')} />
+            ),
+        })
+    }, [navigation])
+
     return (
-        <View>
+        <View style={{ flex: 1 }}>
             <TextInput placeholder="Pesquisar conta" value={search} onChangeText={setSearch} />
 
             <View>
