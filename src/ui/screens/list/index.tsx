@@ -1,7 +1,11 @@
 import React, { useContext, useEffect, useState } from "react"
-import { Button, FlatList, Text, TextInput, View } from "react-native"
+import { FlatList, Text, View } from "react-native"
 import { useNavigation } from "@react-navigation/native"
+import Icon from '@react-native-vector-icons/fontawesome6';
 import { AccountContext } from "../../../context"
+import { AccountCard, SearchTextInput } from "../../components";
+import { Metrics, Palette } from "../../../res";
+import { styles } from "./styles";
 
 export function AccountsList() {
     const [search, setSearch] = useState('')
@@ -12,30 +16,45 @@ export function AccountsList() {
     useEffect(() => {
         navigation.setOptions({
             headerRight: () => (
-                <Button title="Detalhes" onPress={() => navigation.navigate('Details')} />
+                <Icon
+                    name="plus"
+                    color={Palette.secondary.default}
+                    size={Metrics.font_size.x_small}
+                    iconStyle="solid"
+                    onPress={() => navigation.navigate('Details')}
+                />
             ),
         })
     }, [navigation])
 
+    function ListHeader() {
+        return (
+            <View style={styles.listHeader}>
+                <Text style={styles.listHeaderTitle}>Listagem</Text>
+                <Text style={styles.listHeaderHelper}>{accounts.length} registros</Text>
+            </View>
+        )
+    }
+
     return (
-        <View style={{ flex: 1 }}>
-            <TextInput placeholder="Pesquisar conta" value={search} onChangeText={setSearch} />
+        <View style={styles.container}>
+            <View style={styles.input}>
+                <SearchTextInput placeholder="Pesquisar conta" value={search} onChangeText={setSearch} />
+            </View>
 
-            <View>
-                <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
-                    <Text>Listagem</Text>
-                    <Text>{accounts.length} registros</Text>
-                </View>
-
+            <View style={styles.content}>
                 <FlatList
+                    ListHeaderComponent={ListHeader}
                     data={accounts}
                     keyExtractor={item => item.code}
-                    renderItem={({ item }) => (
-                        <View key={item.code} style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
-                            <Text>{`${item.code} - ${item.name}`}</Text>
-                            <Button title="Del" onPress={() => deleteAccount(item.code)} />
-                        </View>
-                    )}
+                    renderItem={({ item }) =>
+                        <AccountCard
+                            key={item.code}
+                            label={`${item.code} - ${item.name}`}
+                            onDeletePress={() => deleteAccount(item.code)}
+                        />
+                    }
+                    contentContainerStyle={styles.list}
                 />
             </View>
         </View>
