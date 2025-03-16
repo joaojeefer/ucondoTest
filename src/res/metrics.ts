@@ -24,7 +24,7 @@ export const Metrics = {
    radius: {
       xx_small: 4,
       x_small: 8,
-      small: 12,
+      small: 16,
       medium: 24,
       x_large: 100,
    },
