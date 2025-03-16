@@ -1,0 +1,20 @@
+export const Palette = {
+   primary: {
+      default: '#622490',
+      light: '#F0EDF5',
+   },
+   secondary: {
+      default: '#FFFFFF',
+      light: '#C4C4D1',
+      dark: '#3D3D4C',
+   },
+   error: {
+      default: '#FF6680'
+   },
+   warning: {
+      default: '#E28856',
+   },
+   success: {
+      default: '#1BA803',
+   },
+}
