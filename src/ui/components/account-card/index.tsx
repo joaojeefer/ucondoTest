@@ -7,7 +7,7 @@ import { Metrics, Palette } from "../../../res";
 import { DeleteAccountModal } from "../delete-account-modal";
 
 export function AccountCard(props: AccountCardProps) {
-   const { label, onDeletePress } = props
+   const { account, label, onDeletePress } = props
 
    const [deleteAccountModalVisible, setDeleteAccountModalVisible] = useState(false)
 
@@ -24,6 +24,7 @@ export function AccountCard(props: AccountCardProps) {
             />
          </View>
          <DeleteAccountModal
+            account={account}
             isVisible={deleteAccountModalVisible}
             onRequestClose={() => setDeleteAccountModalVisible(false)}
             onPrimaryButtonPress={onDeletePress}

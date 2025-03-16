@@ -50,6 +50,7 @@ export function AccountsList() {
                     renderItem={({ item }) =>
                         <AccountCard
                             key={item.code}
+                            account={`${item.code} - ${item.name}`}
                             label={`${item.code} - ${item.name}`}
                             onDeletePress={() => deleteAccount(item.code)}
                         />

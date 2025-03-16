@@ -6,7 +6,7 @@ import Icon from "@react-native-vector-icons/fontawesome6";
 import { Metrics, Palette } from "../../../res";
 
 export function DeleteAccountModal(props: DeleteAccountModalProps) {
-   const { isVisible, onRequestClose, onPrimaryButtonPress } = props
+   const { account, isVisible, onRequestClose, onPrimaryButtonPress } = props
 
    return (
       <Modal
@@ -25,7 +25,7 @@ export function DeleteAccountModal(props: DeleteAccountModalProps) {
                   style={styles.icon}
                />
                <Text style={styles.description}>Deseja excluir a conta</Text>
-               <Text style={[styles.description, styles.descriptionBold]}>Hello World!</Text>
+               <Text style={[styles.description, styles.descriptionBold]}>{account}?</Text>
                <View style={styles.buttons}>
                   <Pressable onPress={onRequestClose}>
                      <Text style={styles.buttonLabel}>Não!</Text>
