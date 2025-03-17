@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useState } from "react"
+import React, { createContext, ReactNode, useCallback, useEffect, useState } from "react"
 import { Account } from "./types"
 import { accounstListMock } from "../../../mock"
 
@@ -15,10 +15,28 @@ interface AccountProviderProps {
 export const AccountContext = createContext({} as AccountContextData)
 
 export function AccountProvider({ children }: AccountProviderProps) {
-   const [accounts, setAccounts] = useState(accounstListMock)
+   const [accounts, setAccounts] = useState<Account[]>(accounstListMock)
+
+   const sortAccounts = useCallback((list: Account[]) => {
+      const sortedList = list.sort((a, b) => {
+         const aParts = a.code.split('.').map(Number)
+         const bParts = b.code.split('.').map(Number)
+
+         for (let i = 0; i < Math.max(aParts.length, bParts.length); i++) {
+            const numA = aParts[i] || 0
+            const numB = bParts[i] || 0
+
+            if (numA !== numB) return numA - numB
+         }
+
+         return 0
+      })
+
+      return sortedList
+   }, [])
 
    function addAccount(newAccount: Account) {
-      // adicionar novo Account conforme regra
+      setAccounts(sortAccounts([...accounts, newAccount]))
    }
 
    function deleteAccount(code: string) {
