@@ -46,19 +46,19 @@ export function AccountsList(props: AccountsListProps) {
             <View style={styles.content}>
                 <FlatList
                     showsVerticalScrollIndicator={false}
+                    contentContainerStyle={styles.list}
                     ListHeaderComponent={ListHeader}
                     data={accounts}
+                    extraData={accounts}
                     keyExtractor={item => item.code}
                     renderItem={({ item }) =>
                         <AccountCard
-                            key={item.code}
                             account={`${item.code} - ${item.name}`}
                             label={`${item.code} - ${item.name}`}
                             onDetailsPress={() => navigation.navigate('Details', { code: item.code })}
                             onDeletePress={() => deleteAccount(item.code)}
                         />
                     }
-                    contentContainerStyle={styles.list}
                 />
             </View>
         </View>
