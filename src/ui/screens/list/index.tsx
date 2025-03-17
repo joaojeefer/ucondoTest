@@ -45,6 +45,7 @@ export function AccountsList(props: AccountsListProps) {
 
             <View style={styles.content}>
                 <FlatList
+                    showsVerticalScrollIndicator={false}
                     ListHeaderComponent={ListHeader}
                     data={accounts}
                     keyExtractor={item => item.code}
