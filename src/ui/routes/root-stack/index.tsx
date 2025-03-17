@@ -26,7 +26,7 @@ export function RootStack() {
                }}
             >
                <Stack.Screen name="Home" component={AccountsList} options={{ title: 'Plano de Contas' }} />
-               <Stack.Screen name="Details" component={DetailsAccount} options={{ title: 'Inserir Conta' }} />
+               <Stack.Screen name="Details" component={DetailsAccount} />
             </Stack.Navigator>
          </NavigationContainer>
       </SafeAreaView>

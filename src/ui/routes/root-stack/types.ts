@@ -8,4 +8,5 @@ export type RootStackParamList = {
 
 export type AccountsListNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Home'>
 
+export type DetailsNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Details'>
 export type DetailsRouteProp = RouteProp<RootStackParamList, 'Details'>

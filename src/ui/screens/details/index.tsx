@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from "react"
-import { Text, TextInput, View } from "react-native"
-import { AccountContext } from "../../../context"
+import { View } from "react-native"
 import { Picker } from "@react-native-picker/picker"
+import { AccountContext } from "../../../context"
 import { Input, Selector } from "../../components"
 import { styles } from "./styles"
 import { DetailsProps } from "./types"
 
 export function DetailsAccount(props: DetailsProps) {
-   const { route } = props
+   const { navigation, route } = props
 
    const [parentCode, setParentCode] = useState('')
    const [code, setCode] = useState('')
@@ -16,6 +16,12 @@ export function DetailsAccount(props: DetailsProps) {
    const [acceptEntries, setAcceptEntries] = useState(true)
 
    const { accounts } = useContext(AccountContext)
+
+   useEffect(() => {
+      navigation.setOptions({
+         title: route.params?.code ? 'Editar Conta' : 'Inserir Conta',
+      })
+   }, [navigation])
 
    useEffect(() => {
       handleParentCode(route.params?.code ?? accounts[0].code)
