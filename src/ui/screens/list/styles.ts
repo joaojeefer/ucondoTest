@@ -11,7 +11,8 @@ export const styles = StyleSheet.create({
       marginBottom: Metrics.spacing.small,
    },
    content: {
-      paddingVertical: Metrics.spacing.small,
+      flex: 1,
+      paddingTop: Metrics.spacing.small,
       paddingHorizontal: Metrics.spacing.medium,
       backgroundColor: Palette.primary.light,
       borderTopLeftRadius: Metrics.radius.medium,
@@ -33,6 +34,7 @@ export const styles = StyleSheet.create({
       color: Palette.secondary.lightAlt,
    },
    list: {
+      paddingBottom: Metrics.spacing.small,
       gap: Metrics.spacing.x_small,
    },
 })
