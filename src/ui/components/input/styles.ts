@@ -20,4 +20,7 @@ export const styles = StyleSheet.create({
    input: {
       flex: 1,
    },
+   disabledText: {
+      color: Palette.secondary.light,
+   },
 })

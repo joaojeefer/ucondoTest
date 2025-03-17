@@ -1,16 +1,22 @@
 import React from "react";
 import { Text, TextInput, View } from "react-native";
-import { InputProps } from "./types";
 import { styles } from "./styles";
+import { InputProps } from "./types";
 
 export function Input(props: InputProps) {
-   const { label, style, ...rest } = props
+   const { editable, label, style, ...rest } = props
+
+   const disabledStyle = !editable ? styles.disabledText : null
 
    return (
       <>
          <Text style={styles.label}>{label}</Text>
          <View style={styles.container}>
-            <TextInput {...rest} style={[style, styles.input]} />
+            <TextInput
+               {...rest}
+               editable={editable}
+               style={[style, styles.input, disabledStyle]}
+            />
          </View>
       </>
    )
