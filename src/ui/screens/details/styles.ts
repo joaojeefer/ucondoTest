@@ -17,4 +17,8 @@ export const styles = StyleSheet.create({
    bottomSpacing: {
       marginBottom: Metrics.spacing.x_small,
    },
+   error: {
+      marginTop: Metrics.spacing.xxx_small,
+      color: Palette.error.default,
+   },
 })
