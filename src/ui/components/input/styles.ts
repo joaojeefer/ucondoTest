@@ -19,6 +19,7 @@ export const styles = StyleSheet.create({
    },
    input: {
       flex: 1,
+      color: Palette.secondary.dark,
    },
    disabledText: {
       color: Palette.secondary.light,

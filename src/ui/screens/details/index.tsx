@@ -136,6 +136,7 @@ export function DetailsAccount(props: DetailsProps) {
                         <Picker.Item value="0" label="Selecione" />
                         {accounts.map(account =>
                            <Picker.Item
+                              color={Palette.secondary.dark}
                               key={account.code}
                               value={account.code}
                               label={`${account.code} - ${account.name}`}
@@ -178,8 +179,8 @@ export function DetailsAccount(props: DetailsProps) {
                            handleChange('accountType')
                         }}
                      >
-                        <Picker.Item label="Receita" value="Receita" />
-                        <Picker.Item label="Despesa" value="Despesa" />
+                        <Picker.Item label="Receita" value="Receita" color={Palette.secondary.dark} />
+                        <Picker.Item label="Despesa" value="Despesa" color={Palette.secondary.dark} />
                      </Selector>
 
                      <Selector
@@ -192,8 +193,8 @@ export function DetailsAccount(props: DetailsProps) {
                            handleChange(acceptEntries)
                         }}
                      >
-                        <Picker.Item label="Sim" value={true} />
-                        <Picker.Item label="Não" value={false} />
+                        <Picker.Item label="Sim" value={true} color={Palette.secondary.dark} />
+                        <Picker.Item label="Não" value={false} color={Palette.secondary.dark} />
                      </Selector>
                   </View>
                )
