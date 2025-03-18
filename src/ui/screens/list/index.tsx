@@ -72,6 +72,7 @@ export function AccountsList(props: AccountsListProps) {
 
             <View style={styles.content}>
                 <FlatList
+                    bounces={false}
                     showsVerticalScrollIndicator={false}
                     contentContainerStyle={styles.list}
                     ListHeaderComponent={ListHeader}
