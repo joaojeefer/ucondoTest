@@ -1,5 +1,5 @@
 export type DeleteAccountModalProps = {
-   account: string
+   accountLabel: string
    isVisible: boolean
    onRequestClose: () => void
    onPrimaryButtonPress: () => void

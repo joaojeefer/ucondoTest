@@ -39,6 +39,11 @@ export function AccountsList(props: AccountsListProps) {
         setFilteredAccounts(freshList)
     }
 
+    function handleDeleteAccount(accountCode: string) {
+        const remainingAccounts = deleteAccount(accountCode)
+        setFilteredAccounts(remainingAccounts)
+    }
+
     function ListHeader() {
         return (
             <View style={styles.listHeader}>
@@ -81,12 +86,7 @@ export function AccountsList(props: AccountsListProps) {
                     keyExtractor={item => item.code}
                     ListEmptyComponent={() => <EmptyList />}
                     renderItem={({ item }) =>
-                        <AccountCard
-                            account={`${item.code} - ${item.name}`}
-                            label={`${item.code} - ${item.name}`}
-                            onDetailsPress={() => navigation.navigate('Details', { code: item.code })}
-                            onDeletePress={() => deleteAccount(item.code)}
-                        />
+                        <AccountCard account={item} onDeleteAccount={() => handleDeleteAccount(item.code)} />
                     }
                 />
             </View>

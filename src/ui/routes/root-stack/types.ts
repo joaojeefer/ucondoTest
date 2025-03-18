@@ -10,3 +10,5 @@ export type AccountsListNavigationProp = NativeStackNavigationProp<RootStackPara
 
 export type DetailsNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Details'>
 export type DetailsRouteProp = RouteProp<RootStackParamList, 'Details'>
+
+export type UseNavigationProp = NativeStackNavigationProp<RootStackParamList>

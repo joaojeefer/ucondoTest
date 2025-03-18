@@ -30,7 +30,9 @@ export function AccountProvider({ children }: AccountProviderProps) {
    }
 
    function deleteAccount(code: string) {
-      setAccounts(oldList => oldList.filter(account => account.code !== code))
+      const remainingAccounts = accounts.filter(account => account.code !== code)
+      setAccounts(remainingAccounts)
+      return remainingAccounts
    }
 
    return (
