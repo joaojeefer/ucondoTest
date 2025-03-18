@@ -224,6 +224,12 @@ export const accounstListMock: Account[] = [
       acceptEntries: true
    },
    {
+      code: "2.1.999",
+      name: "teste máximo",
+      type: "Despesa",
+      acceptEntries: true
+   },
+   {
       code: "3",
       name: "Despesas bancárias",
       type: "Despesa",

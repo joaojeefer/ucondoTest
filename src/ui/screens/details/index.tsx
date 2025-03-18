@@ -58,7 +58,7 @@ export function DetailsAccount(props: DetailsProps) {
       if (route.params?.code) {
          handleSelectedAccount(route.params?.code)
       } else {
-         handleParentCode(accounts[0].code)
+         handleCode(accounts[0].code)
       }
    }, [])
 
@@ -80,21 +80,32 @@ export function DetailsAccount(props: DetailsProps) {
    }
 
    function handleCode(parent: string) {
+      setParentCode(parent)
+
       const childrenAccounts = accounts.filter(account => account.code.startsWith(`${parent}.`))
 
       if (!childrenAccounts.length) {
          setCode(`${parent}.1`)
       } else {
-         const lastCode = childrenAccounts.sort().pop()
+         const lastCode = childrenAccounts.pop()
          const lastValue = Number(lastCode?.code.split('.').pop())
-         const newCode = `${parent}.${lastValue + 1}`
-         setCode(newCode)
-      }
-   }
 
-   function handleParentCode(parent: string) {
-      setParentCode(parent)
-      handleCode(parent)
+         if (lastValue < 999) {
+            const newCode = `${parent}.${lastValue + 1}`
+            setCode(newCode)
+         } else {
+            const breakedParent = parent.split('.') ?? [parent]
+            const lastParentValue = Number(breakedParent.pop())
+
+            if (breakedParent.length < 2) {
+               handleCode(`${lastParentValue + 1}`)
+            } else {
+               const baseParent = breakedParent.slice(0, breakedParent.length - 1).join('.')
+               const newParentCode = `${baseParent}.${lastParentValue + 1}`
+               handleCode(newParentCode)
+            }
+         }
+      }
    }
 
    function handleSubmitForm(values: FormikValues) {
@@ -129,7 +140,7 @@ export function DetailsAccount(props: DetailsProps) {
                         selectedValue={values.parentCode}
                         style={styles.bottomSpacing}
                         onValueChange={value => {
-                           handleParentCode(value)
+                           handleCode(value)
                            handleChange('parentCode')
                         }}
                      >
