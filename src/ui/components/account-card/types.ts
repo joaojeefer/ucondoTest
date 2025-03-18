@@ -1,6 +1,6 @@
+import { Account } from "../../../context"
+
 export type AccountCardProps = {
-   account: string
-   label: string
-   onDetailsPress: () => void
-   onDeletePress: () => void
+   account: Account
+   onDeleteAccount: () => void
 }

@@ -1,20 +1,30 @@
 import Icon from "@react-native-vector-icons/fontawesome6"
 import React, { useState } from "react"
 import { Pressable, Text } from "react-native"
+import { useNavigation } from "@react-navigation/native"
+import { DeleteAccountModal } from "../delete-account-modal"
+import { Metrics, Palette } from "../../../res"
 import { styles } from "./styles"
 import { AccountCardProps } from "./types"
-import { Metrics, Palette } from "../../../res"
-import { DeleteAccountModal } from "../delete-account-modal"
+import { UseNavigationProp } from "../../routes/types"
 
 export function AccountCard(props: AccountCardProps) {
-   const { account, label, onDetailsPress, onDeletePress } = props
+   const { account, onDeleteAccount } = props
 
    const [deleteAccountModalVisible, setDeleteAccountModalVisible] = useState(false)
 
+   const navigation = useNavigation<UseNavigationProp>()
+
+   const accountLabel = `${account.code} - ${account.name}`
+
+   function handleDetailsPress() {
+      navigation.navigate('Details', { code: account.code })
+   }
+
    return (
       <>
-         <Pressable onPress={onDetailsPress} style={styles.container}>
-            <Text style={styles.label} numberOfLines={2}>{label}</Text>
+         <Pressable onPress={handleDetailsPress} style={styles.container}>
+            <Text style={styles.label} numberOfLines={2}>{accountLabel}</Text>
             <Icon
                name="trash"
                color={Palette.secondary.light}
@@ -24,10 +34,10 @@ export function AccountCard(props: AccountCardProps) {
             />
          </Pressable>
          <DeleteAccountModal
-            account={account}
+            accountLabel={accountLabel}
             isVisible={deleteAccountModalVisible}
             onRequestClose={() => setDeleteAccountModalVisible(false)}
-            onPrimaryButtonPress={onDeletePress}
+            onPrimaryButtonPress={onDeleteAccount}
          />
       </>
    )
