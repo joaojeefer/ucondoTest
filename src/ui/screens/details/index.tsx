@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from "react"
 import { Alert, Text, View } from "react-native"
 import Icon from "@react-native-vector-icons/fontawesome6"
 import { Picker } from "@react-native-picker/picker"
-import { Formik, FormikErrors, FormikProps, FormikValues } from "formik"
+import { Formik, FormikProps, FormikValues } from "formik"
 import * as yup from 'yup'
 import { AccountContext } from "../../../context"
 import { Input, Selector } from "../../components"
@@ -133,13 +133,13 @@ export function DetailsAccount(props: DetailsProps) {
                            handleChange('parentCode')
                         }}
                      >
-                        <Picker.Item value="0" label="Selecione" />
+                        <Picker.Item value="0" label="Selecione" color={Palette.secondary.dark} />
                         {accounts.map(account =>
                            <Picker.Item
-                              color={Palette.secondary.dark}
                               key={account.code}
                               value={account.code}
                               label={`${account.code} - ${account.name}`}
+                              color={Palette.secondary.darkest}
                            />
                         )}
                      </Selector>
@@ -179,8 +179,8 @@ export function DetailsAccount(props: DetailsProps) {
                            handleChange('accountType')
                         }}
                      >
-                        <Picker.Item label="Receita" value="Receita" color={Palette.secondary.dark} />
-                        <Picker.Item label="Despesa" value="Despesa" color={Palette.secondary.dark} />
+                        <Picker.Item label="Receita" value="Receita" color={Palette.secondary.darkest} />
+                        <Picker.Item label="Despesa" value="Despesa" color={Palette.secondary.darkest} />
                      </Selector>
 
                      <Selector
@@ -193,8 +193,8 @@ export function DetailsAccount(props: DetailsProps) {
                            handleChange(acceptEntries)
                         }}
                      >
-                        <Picker.Item label="Sim" value={true} color={Palette.secondary.dark} />
-                        <Picker.Item label="Não" value={false} color={Palette.secondary.dark} />
+                        <Picker.Item label="Sim" value={true} color={Palette.secondary.darkest} />
+                        <Picker.Item label="Não" value={false} color={Palette.secondary.darkest} />
                      </Selector>
                   </View>
                )

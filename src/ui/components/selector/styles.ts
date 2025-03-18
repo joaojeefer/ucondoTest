@@ -19,4 +19,7 @@ export const styles = StyleSheet.create({
       backgroundColor: 'transparent',
       marginTop: -6,
    },
+   disabledText: {
+      color: Palette.secondary.light,
+   },
 })
