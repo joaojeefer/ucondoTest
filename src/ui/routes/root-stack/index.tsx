@@ -11,8 +11,8 @@ const Stack = createNativeStackNavigator<RootStackParamList>()
 
 export function RootStack() {
    return (
-      <SafeAreaView style={{ flex: 1 }}>
-         <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
+      <>
+         <StatusBar translucent backgroundColor={Palette.primary.default} barStyle="dark-content" />
          <NavigationContainer>
             <Stack.Navigator
                screenOptions={{
@@ -29,6 +29,7 @@ export function RootStack() {
                <Stack.Screen name="Details" component={DetailsAccount} />
             </Stack.Navigator>
          </NavigationContainer>
-      </SafeAreaView>
+         <SafeAreaView />
+      </>
    )
 }
