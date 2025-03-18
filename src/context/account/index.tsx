@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useCallback, useEffect, useState } from "react"
+import React, { createContext, useCallback, useState } from "react"
 import { Account, AccountContextData, AccountProviderProps } from "./types"
 import { accounstListMock } from "../../../mock"
 

@@ -1,7 +1,7 @@
-import React from "react";
-import { Text, TextInput, View } from "react-native";
-import { styles } from "./styles";
-import { InputProps } from "./types";
+import React from "react"
+import { Text, TextInput, View } from "react-native"
+import { styles } from "./styles"
+import { InputProps } from "./types"
 
 export function Input(props: InputProps) {
    const { editable, label, style, ...rest } = props

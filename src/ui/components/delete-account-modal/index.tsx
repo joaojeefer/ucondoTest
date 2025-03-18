@@ -1,9 +1,9 @@
-import React from "react";
-import { Modal, Pressable, Text, View } from "react-native";
-import { DeleteAccountModalProps } from "./types";
-import { styles } from "./styles";
-import Icon from "@react-native-vector-icons/fontawesome6";
-import { Metrics, Palette } from "../../../res";
+import React from "react"
+import { Modal, Pressable, Text, View } from "react-native"
+import { DeleteAccountModalProps } from "./types"
+import { styles } from "./styles"
+import Icon from "@react-native-vector-icons/fontawesome6"
+import { Metrics, Palette } from "../../../res"
 
 export function DeleteAccountModal(props: DeleteAccountModalProps) {
    const { account, isVisible, onRequestClose, onPrimaryButtonPress } = props

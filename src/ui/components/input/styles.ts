@@ -1,5 +1,5 @@
-import { StyleSheet } from "react-native";
-import { Metrics, Palette } from "../../../res";
+import { StyleSheet } from "react-native"
+import { Metrics, Palette } from "../../../res"
 
 export const styles = StyleSheet.create({
    label: {

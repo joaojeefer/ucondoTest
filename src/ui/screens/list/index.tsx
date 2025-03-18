@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react"
 import { FlatList, Text, View } from "react-native"
-import Icon from '@react-native-vector-icons/fontawesome6';
+import Icon from '@react-native-vector-icons/fontawesome6'
 import { AccountContext } from "../../../context"
-import { AccountCard, SearchTextInput } from "../../components";
-import { Metrics, Palette } from "../../../res";
-import { styles } from "./styles";
-import { AccountsListProps } from "./types";
+import { AccountCard, SearchTextInput } from "../../components"
+import { Metrics, Palette } from "../../../res"
+import { styles } from "./styles"
+import { AccountsListProps } from "./types"
 
 export function AccountsList(props: AccountsListProps) {
     const { navigation } = props

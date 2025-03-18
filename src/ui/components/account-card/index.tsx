@@ -1,10 +1,10 @@
-import Icon from "@react-native-vector-icons/fontawesome6";
-import React, { useState } from "react";
-import { Pressable, Text } from "react-native";
-import { styles } from "./styles";
-import { AccountCardProps } from "./types";
-import { Metrics, Palette } from "../../../res";
-import { DeleteAccountModal } from "../delete-account-modal";
+import Icon from "@react-native-vector-icons/fontawesome6"
+import React, { useState } from "react"
+import { Pressable, Text } from "react-native"
+import { styles } from "./styles"
+import { AccountCardProps } from "./types"
+import { Metrics, Palette } from "../../../res"
+import { DeleteAccountModal } from "../delete-account-modal"
 
 export function AccountCard(props: AccountCardProps) {
    const { account, label, onDetailsPress, onDeletePress } = props

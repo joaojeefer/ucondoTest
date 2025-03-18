@@ -1,11 +1,11 @@
-import React from "react";
-import { StatusBar } from "react-native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { NavigationContainer } from "@react-navigation/native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { AccountsList, DetailsAccount } from "../../screens";
-import { Metrics, Palette } from "../../../res";
-import { RootStackParamList } from "./types";
+import React from "react"
+import { StatusBar } from "react-native"
+import { createNativeStackNavigator } from "@react-navigation/native-stack"
+import { NavigationContainer } from "@react-navigation/native"
+import { SafeAreaView } from "react-native-safe-area-context"
+import { AccountsList, DetailsAccount } from "../../screens"
+import { Metrics, Palette } from "../../../res"
+import { RootStackParamList } from "./types"
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 

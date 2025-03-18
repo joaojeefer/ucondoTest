@@ -1,8 +1,8 @@
-import React from 'react';
-import { AccountProvider } from './context';
-import { RootStack } from './ui/routes';
+import React from 'react'
+import { AccountProvider } from './context'
+import { RootStack } from './ui/routes'
 
-export function App(): React.ReactElement {
+export function App() {
    return (
       <AccountProvider>
          <RootStack />

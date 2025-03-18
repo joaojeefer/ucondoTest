@@ -1,4 +1,3 @@
-import { FormikErrors, FormikValues } from "formik"
 import { DetailsNavigationProp, DetailsRouteProp } from "../../routes/types"
 
 export type DetailsFormValues = {

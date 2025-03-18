@@ -1,8 +1,8 @@
-import React from "react";
-import { Text, View } from "react-native";
-import { Picker } from "@react-native-picker/picker";
-import { styles } from "./styles";
-import { SelectorProps } from "./types";
+import React from "react"
+import { Text, View } from "react-native"
+import { Picker } from "@react-native-picker/picker"
+import { styles } from "./styles"
+import { SelectorProps } from "./types"
 
 export function Selector<T>(props: SelectorProps<T>) {
    const { children, label, style, ...rest } = props

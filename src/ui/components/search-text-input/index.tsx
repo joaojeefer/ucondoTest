@@ -1,11 +1,10 @@
-import React from "react";
-import { TextInput, View } from "react-native";
-import Icon from "@react-native-vector-icons/fontawesome6";
-import { styles } from "./styles";
-import { Metrics, Palette } from "../../../res";
-import { SearchTextInputProps } from "./types";
+import React from "react"
+import { TextInput, TextInputProps, View } from "react-native"
+import Icon from "@react-native-vector-icons/fontawesome6"
+import { styles } from "./styles"
+import { Metrics, Palette } from "../../../res"
 
-export function SearchTextInput(props: SearchTextInputProps) {
+export function SearchTextInput(props: TextInputProps) {
    const { style, ...rest } = props
 
    return (
