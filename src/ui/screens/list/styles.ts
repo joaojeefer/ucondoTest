@@ -37,4 +37,8 @@ export const styles = StyleSheet.create({
       paddingBottom: Metrics.spacing.small,
       gap: Metrics.spacing.x_small,
    },
+   emptyList: {
+      alignItems: "center",
+      justifyContent: "center",
+   },
 })
