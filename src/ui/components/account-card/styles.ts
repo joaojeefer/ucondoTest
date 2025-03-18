@@ -20,4 +20,10 @@ export const styles = StyleSheet.create({
       fontSize: Metrics.font_size.x_small,
       fontWeight: '400',
    },
+   income: {
+      color: Palette.success.default,
+   },
+   expense: {
+      color: Palette.warning.default,
+   },
 })

@@ -16,6 +16,7 @@ export function AccountCard(props: AccountCardProps) {
    const navigation = useNavigation<UseNavigationProp>()
 
    const accountLabel = `${account.code} - ${account.name}`
+   const labelStyle = account.type === 'Receita' ? styles.income : styles.expense
 
    function handleDetailsPress() {
       navigation.navigate('Details', { code: account.code })
@@ -24,7 +25,7 @@ export function AccountCard(props: AccountCardProps) {
    return (
       <>
          <Pressable onPress={handleDetailsPress} style={styles.container}>
-            <Text style={styles.label} numberOfLines={2}>{accountLabel}</Text>
+            <Text style={[styles.label, labelStyle]} numberOfLines={2}>{accountLabel}</Text>
             <Icon
                name="trash"
                color={Palette.secondary.light}
