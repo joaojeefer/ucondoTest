@@ -8,6 +8,7 @@ export const Palette = {
       light: '#C4C4D1',
       lightAlt: '#A0A0B2',
       dark: '#3D3D4C',
+      darkest: '#000000',
    },
    error: {
       default: '#FF6680'
