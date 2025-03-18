@@ -12,7 +12,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>()
 export function RootStack() {
    return (
       <>
-         <StatusBar translucent backgroundColor={Palette.primary.default} barStyle="dark-content" />
+         <StatusBar translucent backgroundColor={Palette.primary.default} barStyle="light-content" />
          <NavigationContainer>
             <Stack.Navigator
                screenOptions={{
