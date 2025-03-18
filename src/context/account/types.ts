@@ -1,12 +1,18 @@
-// export enum AccountType {
-//    income = 'receita',
-//    expense = 'despesa'
-// }
+import { ReactNode } from "react"
 
-export interface Account {
+export type AccountContextData = {
+   accounts: Account[]
+   addAccount: (newAccount: Account) => void
+   deleteAccount: (code: string) => void
+}
+
+export type AccountProviderProps = {
+   children: ReactNode
+}
+
+export type Account = {
    code: string
    name: string
-   // type: AccountType
    type: 'Despesa' | 'Receita'
    acceptEntries: boolean
 }

@@ -1,16 +1,6 @@
 import React, { createContext, ReactNode, useCallback, useEffect, useState } from "react"
-import { Account } from "./types"
+import { Account, AccountContextData, AccountProviderProps } from "./types"
 import { accounstListMock } from "../../../mock"
-
-interface AccountContextData {
-   accounts: Account[]
-   addAccount: (newAccount: Account) => void
-   deleteAccount: (code: string) => void
-}
-
-interface AccountProviderProps {
-   children: ReactNode
-}
 
 export const AccountContext = createContext({} as AccountContextData)
 
